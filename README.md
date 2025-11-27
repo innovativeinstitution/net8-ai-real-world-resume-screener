@@ -51,4 +51,24 @@ RABBITMQ_URL=amqp://guest:guest@rabbitmq:5672
 WEB_ORIGIN=http://localhost:5173
 API_ORIGIN=http://localhost:8080
 AI_WORKER_ORIGIN=http://localhost:8000
+```
 
+## 🗂 Service Overview
+
+| Component | Description |
+|-----------|-------------|
+| Core API (.NET 8) | Handles REST endpoints for jobs, candidates, rankings, and metrics |
+| AI Worker (FastAPI) | Processes resumes using OpenAI, embeddings, and ranking algorithms |
+| PostgreSQL | Stores candidates, jobs, resume metadata, embeddings (pgvector) |
+| RabbitMQ | Queues resume parsing and ranking tasks between services |
+| React Frontend | User-friendly UI for managing candidates and jobs |
+| OpenAI | GPT-based resume analysis and AI scoring logic |
+
+---
+
+## ▶️ Start the System
+
+Using Docker Compose:
+
+```bash
+docker-compose up --build
